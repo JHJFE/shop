@@ -75,8 +75,23 @@ let ad = createSlice({
   }
 })
 
+let cart = createSlice({
+  name: 'cart',
+  initialState: [],
+  reducers: {
+    AddtoCart(state, action) {
+      console.log(action.payload)
+      return [...state, action.payload]
+    },
+    Remove(state,action){
+      let removed= state.filter(el=>(el.id !== action.payload.id))
+      console.log('카트',removed)
+      return removed
+    }
+  }
+})
 
-
+export let {AddtoCart,Remove} = cart.actions
 export let { Data, AddData } = data.actions
 export let { Detail } = detail.actions
 export let { Reverse } = ad.actions
@@ -85,6 +100,7 @@ export default configureStore({
   reducer: {
     data: data.reducer,
     detail: detail.reducer,
-    ad: ad.reducer
+    ad: ad.reducer,
+    cart: cart.reducer
   }
 }) 

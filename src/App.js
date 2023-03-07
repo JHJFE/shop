@@ -6,6 +6,8 @@ import { Routes, Route, Link } from 'react-router-dom'
 import Detail from './pages/detail.js'
 import Home from './pages/home';
 import axios from 'axios';
+import Cart from './pages/cart';
+
 function App() {
   let dispatch = useDispatch()
   return (
@@ -26,6 +28,8 @@ function App() {
 
       <Link to='/'>홈</Link>
       <Link to='/detail'>상세 페이지</Link>
+      <Link to='/cart'>장바구니</Link>
+
       <div className='logo-container'>
         <div className="main-bg"></div>
       </div>
@@ -38,6 +42,7 @@ function App() {
       <Routes>
         <Route path='/detail' element={<Detail/>} />
         <Route path='/' element={<Home />} />
+        <Route path='/cart' element={<Cart/>} />
       </Routes>
 
     </div>
